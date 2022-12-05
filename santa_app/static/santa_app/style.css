@@ -1,0 +1,341 @@
+:root{
+    --red: rgb(247, 62, 62);
+    --gray: rgb(52,52,52);
+    --orange: rgb(227, 138, 50);
+    --blue: rgb(124,156,206);
+    --mainwidth: 80vw;
+    --headertext: 25px;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(/static/santa_app/fonts/poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url(/static/santa_app/fonts/poppins/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: cursivefont;
+    src: url(/static/santa_app/fonts/cursive/cursive.ttf);
+}
+
+*{
+    margin: 0;
+    color: white;
+}
+
+
+
+
+
+.loginform{
+    padding: 2vw;
+    border-radius: 1vw;
+    width: 100%;
+}
+
+.formholder{
+    border-radius: 20px;
+    width: var(--mainwidth);
+    background: none;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.instholder{
+    left: 3vw;
+    transform: translate(0%, -50%);
+    width: calc(50vw - 3vw) !important;
+}
+
+.questionsholder{
+    top: calc(3vh + 5vh);
+    transform: translate(-50%, 0);
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+    :root{
+        --mainwidth: 50vw;
+    }
+}
+
+@media screen and (min-aspect-ratio: 15/10) {
+    :root{
+        --mainwidth: 35vw;
+    }
+}
+
+@media screen and (min-aspect-ratio: 3/1) {
+    :root{
+        --mainwidth: 25vw;
+    }
+}
+
+
+
+.centerholder{
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+/* BACKGROUND */
+
+
+.mainbody{
+    background: var(--gray);
+    background-size: cover;
+}
+
+.backgroundimg{
+    position: absolute;
+    height: auto;
+}
+
+.faceimg{
+    width: 20vw;
+    left: 3vw;
+    bottom: 3vw;
+}
+
+.horseimg{
+    width: 25vw;
+    right: 3vw;
+    top: 3vw;
+}
+
+.logoimg{
+    height: 5vh;
+    width: auto;
+    top: 3vw;
+    left: 3vw;
+}
+
+.editimg{
+    height: 5vh;
+    width: auto;
+    top: 3vw;
+    right: 3vw;
+    color: var(--blue);
+    text-decoration: none;
+    font-size: var(--headertext);
+    transition-duration: 0.2s;
+    font-family: poppins;
+    font-weight: bold;
+}
+.editimg:hover{
+    color: var(--orange);
+}
+
+.starimg{
+    width: 25vw;
+    bottom: 3vw;
+    right: 3vw;
+}
+
+
+
+
+
+/* TEXTS */
+
+
+.errortext{
+    color: var(--red);
+}
+
+.textheader{
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: var(--headertext);
+    margin-bottom: 0px;
+    font-family: poppins-bold;
+    line-height: 60px;
+}
+
+label.form-label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.instruction{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+    font-size: 20px;
+}
+
+
+
+
+ ol { counter-reset: my-counter-name; }
+
+li { counter-increment: my-counter-name; }
+
+li::marker { content: counter(my-counter-name); }
+
+
+
+.btn{
+    font-size: var(--bs-body-font-size) !important ;
+    background: var(--blue) !important;
+    color: white !important;
+    border: none !important;
+    transition-duration: 0.2s !important;
+    width: calc(var(--mainwidth) / 3);
+    margin-top: var(--bs-body-font-size);
+    margin-bottom: var(--bs-body-font-size);
+}
+
+.btn:hover{
+    color: white !important;
+    background: var(--orange) !important;
+}
+
+.stepstext{
+    text-align: left;
+    font-size: 33px;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    :root{
+        --headertext: 50px;
+    }
+    *{
+        font-size: 30px;
+    }
+    .instruction{
+        font-size: 33px;
+    }
+    .btn{
+        font-size: 30px !important;
+    }
+    .instholder{
+        width: 72vw !important;
+        left: 10vw;
+    }
+    .stepstext{
+        font-size: 50px;
+    }
+    .tree_st1{
+        width: 8vw;
+    }
+    .tree_st2{
+        width: 8vw !important;
+    }
+}
+
+
+
+
+/* GAME */
+
+@keyframes floating {
+    from {left: 0vw}
+    to {left: 100vw}
+  }
+
+  @keyframes wobble {
+    0%   {transform: translateY(0%)}
+    14%  {transform: translateY(17.5%)}
+    28%  {transform: translateY(35%)}
+    42%  {transform: translateY(17.5%)}
+    56%  {transform: translateY(0%)}
+    70%  {transform: translateY(-6.25%)}
+    85%  {transform: translateY(-12.5%)}
+    100%  {transform: translateY(-6.25%)}
+  }
+
+.presentsholder{
+    width: 100vw;
+    height: 5vh;
+    position: absolute;
+    top: 42.5vh;
+}
+
+.present{
+    position: absolute;
+    animation: floating 3.5s infinite linear, wobble 1s infinite linear;
+    transition-duration: 0.3s;
+}
+
+.present:hover{
+    filter: hue-rotate(-90deg) brightness(130%);
+}
+
+#paper{
+    position: absolute;
+    height: 90vh;
+    width: auto;
+    max-width: 100vw;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #paper{
+        position: absolute;
+        height: auto;
+        width: 98vw;
+        max-height: 100vh;
+    }
+}
+
+.papertext{
+    position: absolute;
+    width: auto;
+    height: auto;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    top: 50vh;
+    left: 50vw;
+    font-size: 5vh;
+    color:rgb(116, 75, 37); 
+    font-family: cursivefont;
+}
+/* .present_wobble{
+    animation-duration: infinite;
+    animation: wobble 1s infinite linear;
+} */
+
+
+.presentstill{
+    width: 6vw;
+    height: auto;
+}
+
+.presentstill_main{
+    width: 18vw;
+    height: auto;
+    transition-duration: 0.1s;
+    cursor: pointer;
+}
+
+.presentstill_main:hover{
+    filter: hue-rotate(-90deg);
+}
+
+.mobileappear{
+    display: none;
+}
+
+@media screen and (max-aspect-ratio: 1/1){
+    .mobileappear{
+        display: block;
+    }
+}

@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'santa_app/style.css' %}" media="screen" />
+    <link href="{% static 'santa_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'santa_app/js/bootstrap.bundle.min.js' %}"></script>
+    {% if not user_picked %}
+    <script src="{% static 'santa_app/script.js' %}"></script>
+    {% else %}
+    <script src="{% static 'santa_app/script_picked.js' %}"></script>
+    {% endif %}
+    <title>Document</title>
+</head>
+<body class="mainbody" style="overflow: hidden">
+    <img class="backgroundimg logoimg" src="/static/santa_app/imgs/logo.png">
+    <a class="backgroundimg editimg" href="/auth/edit">Edit profile</a>
+
+    {% if user_picked %}
+
+    <p class="textheader" style="top: 20vh; position: absolute">Now it's time to prepare a gift<br>
+        Please get in touch with Anna Shyshko to find out more about your giftee </p>
+
+    <div id="presentholder" class="presentsholder" style="display: flex; justify-content: space-around; height: auto; align-items: center">
+    {% for i in range1 %}
+    <img src="/static/santa_app/imgs/present.png" class="presentstill" style="width: {{i}}vw">
+    
+    {% endfor %}
+
+    <img src="/static/santa_app/imgs/present_sticker.png" class="presentstill_main" onclick="show_paper()">
+
+    {% for i in range2 %}
+    <img src="/static/santa_app/imgs/present.png" class="presentstill" style="width: {{i}}vw">
+    
+    {% endfor %}
+    </div>
+
+    {% else %}
+    <p class="textheader" style="top: 20vh; position: absolute">It's time to find out your giftee</p>
+
+    <div id="presentholder" class="presentsholder"></div>
+    {% endif %}
+
+    <a href="/" style="width: 100vw; height: 100vh; position: absolute; z-index: -2; display: none; cursor: default" id="backdrop">
+        <img id="paper" src="/static/santa_app/imgs/paper2.png">
+        <p class="papertext">Your giftee is:<br>
+        <span id="giftee" style="color: rgb(116, 75, 37); font-size: 5vh">{% if user_picked %}{{user_picked.first_name}} {{user_picked.last_name}}{% endif %}</span></p>
+    </a>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'santa_app/style.css' %}" media="screen" />
+    <link href="{% static 'santa_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'santa_app/js/bootstrap.bundle.min.js' %}"></script>
+    <title>Document</title>
+</head>
+<body class="mainbody" style="overflow-y:auto">
+    <img class="backgroundimg starimg tree_st1" src="/static/santa_app/imgs/sticker_gtree.png">
+    <img class="backgroundimg faceimg tree_st2" src="/static/santa_app/imgs/sticker_bird.png" style="width: 18vw">
+    <img class="backgroundimg logoimg" src="/static/santa_app/imgs/logo.png">
+
+    <div class="formholder questionsholder">
+    <p class="textheader" >Please fill in the short questionnaire</p>
+    <form method="POST" enctype="multipart/form-data" class="loginform" style="width: auto; height: 75vh">
+
+        {% for error in errors%}
+
+            <p class="errortext">{{error}}</p>
+
+        {% endfor %}
+
+
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="hobbyinput" class="form-label a">Your hobbies:</label>
+            <input type="text" class="form-control" id="hobbyinput" name="hobby">
+        </div>
+
+        <div class="mb-3">
+            <label for="foodinput" class="form-label a">Your favorite food:</label>
+            <input type="text" class="form-control" id="foodinput" name="fav_food">
+        </div>
+
+        <div class="mb-3">
+            <label for="hapinput" class="form-label a">Your happiest moment in life:</label>
+            <input type="text" class="form-control" id="hapinput" name="hap_moment">
+        </div>
+
+        <div class="mb-3">
+            <label for="funinput" class="form-label a">Your funniest moment in life:</label>
+            <input type="text" class="form-control" id="funinput" name="fun_moment">
+        </div>
+
+        <div class="mb-3">
+            <label for="dreaminput" class="form-label a">Your childhood dream was:</label>
+            <input type="text" class="form-control" id="dreaminput" name="child_dream">
+        </div>
+
+        <div class="mb-3">
+            <label for="posinput" class="form-label a">Please use 5 words to describe your position at PandaDoc (like for a child at the age of 2):</label>
+            <input type="text" class="form-control" id="posinput" name="job_desc">
+        </div>
+
+        <div class="mb-3">
+            <label for="fileinput" class="form-label a">Please upload your teenage or child (or weird) photo:</label>
+            <input class="form-control" type="file" id="fileinput" name="teen_photo">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+</body>
+</html>

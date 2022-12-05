@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'santa_app/style.css' %}" media="screen" />
+    <link href="{% static 'santa_app/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'santa_app/js/bootstrap.bundle.min.js' %}"></script>
+    <title>Document</title>
+</head>
+<body class="mainbody">
+
+<img class="backgroundimg faceimg" src="/static/santa_app/imgs/face.png">
+<img class="backgroundimg horseimg" src="/static/santa_app/imgs/horse.png">
+<img class="backgroundimg logoimg" src="/static/santa_app/imgs/logo.png">
+
+    <div class="formholder">
+        
+    <p class="textheader">Welcome to Secret Panda<br><br class="mobileappear">
+        <span style="color: var(--blue); font-size: calc(var(--headertext) * 1.75); line-height: calc(var(--headertext) * 2); margin-top: calc(var(--headertext) * 1)">Let the magic happen!</span></p>
+
+    <form method="POST" class="loginform">
+        {% for error in errors%}
+
+            <p class="errortext">{{error}}</p>
+
+        {% endfor %}
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="emailinput" class="form-label" style="font-family: poppins; margin-bottom: var(--bs-body-font-size)">Please sign in</label><br>
+            <input type="email" class="form-control" id="emailinput" aria-describedby="emailHelp" name="email" placeholder="Email address">
+        </div>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+    </div>
+</body>
+</html>
