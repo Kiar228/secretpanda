@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+-2ld6o*4moo=37q66#noq2sb-e&p$@)@sqz5@9u3@$cx7*irx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "192.168.0.179", "192.168.8.105", "192.168.0.109"]
+ALLOWED_HOSTS = ["localhost", "secretpanda.herokuapp.com"]
 
 
 # Application definition
